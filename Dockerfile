@@ -1,7 +1,5 @@
-FROM ubuntu:22.04
-
-RUN apt update && apt install apache2 -y
-
-COPY . /var/www/html/
-
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+FROM ubuntu 
+RUN apt update 
+RUN apt-get install apache2 -y 
+ADD . /var/www/html 
+ENTRYPOINT apachectl -D FOREGROUND
